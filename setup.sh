@@ -23,7 +23,7 @@ chmod +x ~/Desktop/DALI.sh
 sudo apt-get -y install nginx php-fpm
 
 # Configure NGINX to use PHP, then start NGINX
-sudo cp C4.php /var/www/html
+sudo ln -s $BASE/C4.php /var/www/html/C4.php || true
 sudo rm /etc/nginx/sites-enabled/default || true
 sudo cp nginx-conf/php.conf /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/php.conf /etc/nginx/sites-enabled/php.conf || true
