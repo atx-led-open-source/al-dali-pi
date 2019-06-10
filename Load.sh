@@ -11,9 +11,17 @@ rm DALI.tar
 sudo echo 'python ../DALI_Monitor.py' > Desktop/DALI.sh
 sudo chmod +x Desktop/DALI.sh
 
+# Install NGINX and PHP
 sudo apt-get install nginx
-ln -s /var/www/html html
 sudo apt-get install php-fpm
+
+# Configure NGINX to use PHP, then start NGINX
+ln -s /var/www/html html
+rm /etc/nginx/sites-enabled/default
+cp nginx-conf/php.conf /etc/nginx/sites-available/
+ln -s /etc/nginx/sites-available/php.conf /etc/nginx/sites-enabled/php.conf
+
+sudo /etc/init.d/nginx start
 
 #
 # notes
