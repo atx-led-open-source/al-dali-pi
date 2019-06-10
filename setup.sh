@@ -2,6 +2,8 @@
 
 set -e
 
+PHP_VER=7.0
+
 BASE=`realpath $0`
 BASE=`dirname $BASE`
 cd $BASE
@@ -27,6 +29,9 @@ sudo ln -s $BASE/C4.php /var/www/html/C4.php || true
 sudo rm /etc/nginx/sites-enabled/default || true
 sudo cp nginx-conf/php.conf /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/php.conf /etc/nginx/sites-enabled/php.conf || true
+
+sudo sed -iOLD 's/user = www-data/user = pi/' /etc/php/$PHP_VER/fpm/pool.d/www.conf || true
+sudo sed -iOLD 's/group = www-data/group = pi/' /etc/php/$PHP_VER/fpm/pool.d/www.conf || true
 
 sudo /etc/init.d/nginx start
 sudo /etc/init.d/nginx reload
