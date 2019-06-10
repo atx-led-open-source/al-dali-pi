@@ -30,9 +30,9 @@ echo ''
 echo ''
 echo "update anytime with ./u.sh"
 echo ''
-echo 'enable serial port in Pi Config'
-echo 'disable console in Pi Config'
-echo ''
-read -p "Press [Enter] key after you have enabled the serial port"
+echo 'enabling serial port in Pi Config...'
+
+sudo raspi-config nonint do_serial 2 0
+
 cd Desktop
 ./DALI.sh
