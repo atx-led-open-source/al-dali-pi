@@ -34,7 +34,7 @@ if( $sa > 63 )
 if( $sa > 79 )
    $friend = "Broadcast ";
 
-$command = "sudo /usr/bin/python /home/pi/DALI_Arg.py $DALI[1] 2>&1; echo $?";
+$command = "sudo /usr/bin/python /home/pi/DALI_Arg.py " . escapeshellarg($DALI[1]) . " 2>&1; echo $?";
 
 $output = shell_exec($command);
 
