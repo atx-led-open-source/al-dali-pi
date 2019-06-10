@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # program to monitor the DALI bus and report status
 # displays the traffic on the DALI Bus
 # 
