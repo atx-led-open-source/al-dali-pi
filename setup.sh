@@ -33,6 +33,8 @@ sudo ln -s /etc/nginx/sites-available/php.conf /etc/nginx/sites-enabled/php.conf
 sudo sed -iOLD 's/user = www-data/user = pi/' /etc/php/$PHP_VER/fpm/pool.d/www.conf || true
 sudo sed -iOLD 's/group = www-data/group = pi/' /etc/php/$PHP_VER/fpm/pool.d/www.conf || true
 
+sudo /etc/init.d/php$PHP_VER-fpm restart
+
 sudo /etc/init.d/nginx start
 sudo /etc/init.d/nginx reload
 
