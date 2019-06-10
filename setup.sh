@@ -6,10 +6,14 @@ BASE=`realpath $0`
 BASE=`dirname $BASE`
 cd $BASE
 
-# Upgrade system packages
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt autoremove
+if [ "$1" = "--no-update-packages" ]; then
+    echo "skipping package update"
+else
+    # Upgrade system packages
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt autoremove
+fi
 
 # Install DALI monitor script to desktop
 echo '$BASE/DALI_Monitor.py' > ~/Desktop/DALI.sh
