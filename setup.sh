@@ -1,27 +1,31 @@
 #!/bin/bash
 
+set -e
+
 BASE=`realpath $0`
 BASE=`dirname $BASE`
 cd $BASE
 
 # Upgrade system packages
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get -y update
+sudo apt-get -y upgrade
 sudo apt autoremove
 
 # Install DALI monitor script to desktop
-ln -s $BASE/DALI_Monitor.py ~/Desktop/DALI_Monitor.py
+echo '$BASE/DALI_Monitor.py' > ~/Desktop/DALI.sh
+chmod +x ~/Desktop/DALI.sh
 
 # Install NGINX and PHP
-sudo apt-get install nginx php-fpm
+sudo apt-get -y install nginx php-fpm
 
 # Configure NGINX to use PHP, then start NGINX
-ln -s /var/www/html html
-rm /etc/nginx/sites-enabled/default
-cp nginx-conf/php.conf /etc/nginx/sites-available/
-ln -s /etc/nginx/sites-available/php.conf /etc/nginx/sites-enabled/php.conf
+sudo cp C4.php /var/www/html
+sudo rm /etc/nginx/sites-enabled/default || true
+sudo cp nginx-conf/php.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/php.conf /etc/nginx/sites-enabled/php.conf || true
 
 sudo /etc/init.d/nginx start
+sudo /etc/init.d/nginx reload
 
 # Enable serial port, but not serial console
 # The raspi-config script is kinda weird, and isn't documented much. The first arg has to be 2 and not 1
