@@ -16,7 +16,7 @@ else
 fi
 
 # Install DALI monitor script to desktop
-echo '$BASE/DALI_Monitor.py' > ~/Desktop/DALI.sh
+echo "$BASE/DALI_Monitor.py" > ~/Desktop/DALI.sh
 chmod +x ~/Desktop/DALI.sh
 
 # Install NGINX and PHP
