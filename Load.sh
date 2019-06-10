@@ -5,7 +5,7 @@ mymac=$(ifconfig | grep 'ether ' | sed '2!d' $myip | cut -d ' ' -f 10 )
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt autoremove
-wget -nv -O DALI.tar http://atxled.com/Pi/DALI.tar?mac=$mymac
+wget -nv -O DALI.tar https://atxled.com/Pi/DALI.tar?mac=$mymac
 tar -x -f DALI.tar
 rm DALI.tar
 sudo echo 'python ../DALI_Monitor.py' > Desktop/DALI.sh
@@ -23,7 +23,7 @@ rm u.sh
 rm Load.sh
 sudo echo 'python DALI_Monitor.py' > m.sh
 sudo chmod +x m.sh
-wget -nv -O u.sh http://atxled.com/Pi/u.sh
+wget -nv -O u.sh https://atxled.com/Pi/u.sh
 sudo chmod +x u.sh
 
 echo ''
