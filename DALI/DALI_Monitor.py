@@ -7,6 +7,9 @@ import RPi.GPIO as GPIO
 import time
 import datetime
 import serial
+import sys
+
+base = sys.path[0]
 
 ProgTimes = [ 0, 7, 10, 14, 20, 28, 40, 56, 80, 113, 160, 226, 320, 452, 640, 900 ]
 
@@ -76,7 +79,7 @@ DT = 0
 DT1 = 0
 DT2 = 0
 
-log = open("DALI_log.txt","a+")
+log = open("%s/../DALI_log.txt" % base, "a+")
 
 FlushFlag = 0
 
