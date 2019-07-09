@@ -15,16 +15,6 @@ ser = serial.Serial(
 	timeout=1,
 )
 
-ser.write('hFE80\n')  # all on 128
-x=ser.read(100)
-ser.write('hFE00\n')  # all off 
-x=ser.read(100)
-ser.write('hFEFE\n')  # all on full
-x=ser.read(100)
-ser.write('hFE00\n')  # all off
-x=ser.read(100)
-
-
 while 1 :
 	message = raw_input("input 2 byte DALI command ( like FE00 ): ")  # enter 4 HEX characters
 

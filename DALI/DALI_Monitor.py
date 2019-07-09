@@ -7,9 +7,6 @@ import RPi.GPIO as GPIO
 import time
 import datetime
 import serial
-import sys
-
-base = sys.path[0]
 
 ProgTimes = [ 0, 7, 10, 14, 20, 28, 40, 56, 80, 113, 160, 226, 320, 452, 640, 900 ]
 
@@ -79,7 +76,7 @@ DT = 0
 DT1 = 0
 DT2 = 0
 
-log = open("%s/../DALI_log.txt" % base, "a+")
+log = open("DALI_log.txt","a+")
 
 FlushFlag = 0
 
@@ -191,7 +188,7 @@ while 1:
 			if y == 226:
 				Cmd = "Activate Color"
 			if y == 231:
-				w = 4000 -  ( 368 - DT1 * 256 - DT ) * 5.2
+				w = 1700 +  ( DT1 * 256 + DT ) * 6.5
 				Cmd = "Set Color temp to %4d K " % (w)
 
 			z = x/2+176 

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #
 # program to read the info about all devices on a DALI bus
 # loop from 0-63 to get on/off/level and dali type

@@ -131,7 +131,7 @@ x=ser.read(1)
 x=ser.read(3)
 SN = SN*256+int(x,16)
 if(SN != 4294967295):
-	print('SN version: %08X'%(SN))
+	print('Serial Number Hex: %08X'%(SN))
 
 ser.write('h%02xC5\n'%(device)) 
 time.sleep(.1)
