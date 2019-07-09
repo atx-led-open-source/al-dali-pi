@@ -28,6 +28,7 @@ sudo apt-get -y install nginx php-fpm
 sudo ln -s $BASE/C4.php /var/www/html/C4.php || true
 sudo rm /etc/nginx/sites-enabled/default || true
 sudo cp nginx-conf/php.conf /etc/nginx/sites-available/
+sudo ln -s $BASE/nginx-conf/index.nginx-debian.html /var/www/html/
 sudo ln -s /etc/nginx/sites-available/php.conf /etc/nginx/sites-enabled/php.conf || true
 
 sudo sed -iOLD 's/user = www-data/user = pi/' /etc/php/$PHP_VER/fpm/pool.d/www.conf || true
