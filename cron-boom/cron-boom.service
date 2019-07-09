@@ -1,0 +1,17 @@
+[Unit]
+Description=BoomCron
+After=multi-user.target
+
+[Service]
+Type=idle
+Restart=always
+RestartSec=30
+StartLimitInterval=2
+StartLimitBurst=5
+
+WorkingDirectory=/home/pi/al-dali-pi/cron-boom
+ExecStart=/home/pi/al-dali-pi/cron-boom/cron_boom.py
+ExecStop=/bin/sleep 0
+
+[Install]
+WantedBy=multi-user.target
