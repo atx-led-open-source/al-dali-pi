@@ -41,5 +41,7 @@ if __name__ == '__main__':
         if response.status_code != 200:
             logging.info('could not update boomerang service[%s]: %s',
                     response.status_code, response.text)
+        else:
+            last_data = data
 
         time.sleep(20*60)
