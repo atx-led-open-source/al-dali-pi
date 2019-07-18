@@ -7,9 +7,10 @@ import uuid
 
 import requests
 
-# https://stackoverflow.com/questions/159137
+# Get the mac of the wifi adapter. RPi specific-ish
 def get_mac_address():
-    return hex(uuid.getnode())[2:]
+    with open('/sys/class/net/wlan0/address') as f:
+        return f.read().strip().replace(':', '')
 
 # https://stackoverflow.com/questions/166506
 def get_ip_address():
