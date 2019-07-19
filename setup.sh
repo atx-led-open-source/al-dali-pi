@@ -46,6 +46,8 @@ sudo /etc/init.d/nginx reload
 echo 'enabling serial port in Pi Config...'
 sudo raspi-config nonint do_serial 2 0
 
-echo ''
-echo ''
-echo "update anytime with 'git pull'"
+echo 'For the serial port to work, the machine must be rebooted.'
+echo -n 'Reboot now? [y/N] ' && read resp
+if [ "$resp" = 'y' ] || [ "$resp" = 'yes' ] || [ "$resp" = 'Y' ]; then
+	sudo reboot
+fi
