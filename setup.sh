@@ -8,7 +8,7 @@ BASE=`realpath $0`
 BASE=`dirname $BASE`
 cd $BASE
 
-if [ "$1" = "--no-update-packages" ]; then
+if [ "$1" = "-n" ] || [ "$1" = "--no-update-packages" ]; then
     echo "skipping package update"
 else
     # Upgrade system packages
