@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 import logging
 import socket
-import sys
 import time
-import uuid
 
 import requests
 

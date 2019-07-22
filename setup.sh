@@ -40,6 +40,13 @@ sudo /etc/init.d/php$PHP_VER-fpm restart
 sudo /etc/init.d/nginx start
 sudo /etc/init.d/nginx reload
 
+echo 'Do you want to register this Raspberry Pi with me.atxled.com? This is '
+echo 'a redirection service to easily find your Pi on your local network.'
+echo -n 'Register? [y/N] ' && read resp
+if [ "$resp" = 'y' ] || [ "$resp" = 'yes' ] || [ "$resp" = 'Y' ]; then
+	./cron-boom/setup.sh
+fi
+
 # Enable serial port, but not serial console
 # The raspi-config script is kinda weird, and isn't documented much. The first arg has to be 2 and not 1
 # for some reason...
