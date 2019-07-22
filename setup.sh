@@ -2,7 +2,7 @@
 
 set -e
 
-PHP_VER=7.0
+PHP_VER=7.3
 
 BASE=`realpath $0`
 BASE=`dirname $BASE`
